@@ -1,0 +1,26 @@
+.questions_title {
+    margin-left: 20px;
+    margin-top: 40px;
+}
+.model_table {
+    margin: 20px;
+}
+
+.correct_prediction {
+    background: #cecccc;
+}
+
+.details_image {
+    margin: 5px 10px;
+    max-width: 300px;
+    max-height: 500px;
+}
+
+.search_image {
+    max-width: 300px;
+    max-height: 500px;
+}
+
+.details_title {
+    margin: 40px 20px;
+}

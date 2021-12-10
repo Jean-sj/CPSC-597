@@ -1,0 +1,138 @@
+<!doctype html>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>Game Knowledge Graphs</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css.css')}}"/>
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+    });
+</script>
+<div>
+    {% block body %}
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-8 row text-center">
+                <img class="details_image" src="http://localhost:8080/pics/{{game_info.pic}}" />
+                <h1 class="details_title text-center">{{game_info.name}}</h1>
+            </div>
+            <div class="col-3 row">
+                <label class="float-right" style="margin-top: 40px"><a href="/">Back to Homepage</a></label>
+            </div>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-6 form-inline">
+                <h5 style="margin: 10px 40px">Genres</h5>
+                <h5 style="margin: 10px 20px"><span style="color:darkblue">
+                    {% for genre in game_info.genres %}
+                        {{ genre }} &nbsp;&nbsp;&nbsp;&nbsp;
+                    {% endfor %}
+                </h5>
+            </div>
+            
+            <div class="col-6 form-inline">
+                <h5 style="margin: 10px 40px">Publisher</h5>
+                <h5 style="margin: 10px 20px"><span style="color:darkblue">
+                    
+                    {% for publisher in game_info.publishers %}
+                        {{ publisher }} &nbsp;&nbsp;&nbsp;&nbsp;
+                    {% endfor %}
+                    
+                </h5>
+            </div>
+            <div class="col-6 form-inline">
+                <h5 style="margin: 10px 40px">Developer</h5>
+                <h5 style="margin: 10px 20px"><span style="color:darkblue">
+                    {% for developer in game_info.developers %}
+                        {{ developer }} &nbsp;&nbsp;&nbsp;&nbsp;
+                    {% endfor %}
+                </h5>
+            </div>
+            <div class="col-6 form-inline">
+                <h5 style="margin: 10px 40px">Platform</h5>
+                <h5 style="margin: 10px 20px"><span style="color:darkblue">
+                    {% for console in game_info.platform %}
+                        {{ console }} &nbsp;&nbsp;&nbsp;&nbsp;
+                    {% endfor %}
+                </h5>
+            </div>
+            <div class="col-12 form-inline">
+                <h5 style="margin: 10px 40px">Release Date</h5>
+                <h5 style="margin: 10px 20px"><span style="color:darkblue">
+                    {% if 'playstation 4' in game_info.releaseDate %}
+                        Playstation 4 <br />
+                        {% for  k, v in game_info.releaseDate['playstation 4'].items() %}
+                            {{ k }} &nbsp;&nbsp;&nbsp;&nbsp;
+                            {{ v }} &nbsp;&nbsp;&nbsp;&nbsp;
+                        {% endfor%}
+                        <br /><br />                    
+                    {% endif %}                    
+                    {% if 'nintendo switch' in game_info.releaseDate %}
+                        Nintendo Switch <br />
+                        {% for  k, v in game_info.releaseDate['nintendo switch'].items() %}
+                            {{ k }} &nbsp;&nbsp;&nbsp;&nbsp;
+                            {{ v }} &nbsp;&nbsp;&nbsp;&nbsp;
+                        {% endfor%}
+                        <br /><br />                      
+                    {% endif %}                    
+                    {% if 'xbox one' in game_info.releaseDate %}
+                        Xbox One <br />
+                        {% for  k, v in game_info.releaseDate['xbox one'].items() %}
+                            {{ k }} &nbsp;&nbsp;&nbsp;&nbsp;
+                            {{ v }} &nbsp;&nbsp;&nbsp;&nbsp;
+                        {% endfor%}                        
+                    {% endif %}
+
+                </h5>
+            </div>
+            <!-- <div class="col-6 form-inline">
+                <h5 style="margin: 10px 40px">ESRB</h5>
+                <img style="margin: 10px 20px" src="
+                {% if game_info.esrb == 'E' %}
+                {{ url_for('static', filename='images/ratingsymbol_e.png') }}
+                {% elif game_info.esrb == 'E10Plus' %}
+                {{ url_for('static', filename='images/ratingsymbol_e10.png') }}
+                {% elif game_info.esrb == 'M' %}
+                {{ url_for('static', filename='images/ratingsymbol_m.png')}}
+                {% elif game_info.esrb == 'T' %}
+                {{ url_for('static', filename='images/ratingsymbol_t.png')}}
+                {% elif game_info.esrb == 'RP' %}
+                {{ url_for('static', filename='images/ratingsymbol_rp.png')}}
+                {% endif %}
+                " />
+            </div>
+            <div class="col-12 form-inline">
+                <h5 style="margin: 10px 40px">Ratings</h5>
+                <h5 style="margin: 10px 20px"><span style="color:darkblue">4.5</h5>
+            </div>
+            <div class="col-12">
+                <h5 style="margin: 10px 40px">Description</h5>
+                <p style="margin: 10px 40px">
+                    {{ game_info.description }}
+                </p>
+            </div>                         -->
+        </div>
+        <hr />
+        <div>
+            <h5>Related Games</h5>
+            <div class="row">
+                {% for relate_game in related_games %}
+                    <div class="col-3 text-center" style="margin: 10px">
+                        <img width="90%" height="80%" src="http://localhost:8080/pics/{{ relate_game._source.pic }}" />
+                        <p><a href="/details/{{ relate_game._id }}">{{ relate_game._source.name }}</a></p>
+                    </div>
+                {% endfor%}
+            </div>
+        </div>
+        
+    </div>
+    {% endblock %}
+</div>
